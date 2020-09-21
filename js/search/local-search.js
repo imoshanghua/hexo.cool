@@ -4,13 +4,7 @@
 // '<div id="no-result"><svg class="icon"><use xlink:href="#icon-emotion-unhappy-line"></use></svg></div>';
 //- local-search
 
-/**
- * 本地搜索函数
- * @param {*} path xml 文件路径
- * @param {*} searchId 搜索框元素 ID
- * @param {*} contentId 结果框元素 ID
- */
-const localSearch = (path, searchId, contentId) => {
+let searchFunc = function(path, search_id, content_id) {
   "use strict";
   const req = new Request(path);
   let xhr = new XMLHttpRequest();
@@ -28,9 +22,9 @@ const localSearch = (path, searchId, contentId) => {
           url: entry.querySelector("url").innerHTML,
         });
       });
-      let $input = document.getElementById(searchId);
+      let $input = document.getElementById(search_id);
       if (!$input) return;
-      let $resultContent = document.getElementById(contentId);
+      let $resultContent = document.getElementById(content_id);
       if (document.querySelectorAll("#local-search-input").length > 0) {
         $input.addEventListener("input", function() {
           let str = '<ul class="search-result-list">';
@@ -46,7 +40,7 @@ const localSearch = (path, searchId, contentId) => {
           // perform local searching
           datas.forEach(function(data) {
             let isMatch = true;
-            // let content_index = [];
+            let content_index = [];
             if (!data.title || data.title.trim() === "") {
               data.title = "Untitled";
             }
@@ -131,11 +125,8 @@ const localSearch = (path, searchId, contentId) => {
   xhr.send();
 };
 
-document.addEventListener(
-  "DOMContentLoaded",
-  localSearch(
-    CONFIG.local_search.path,
-    "local-search-input",
-    "local-search-result"
-  )
+searchFunc(
+  CONFIG.local_search.path,
+  "local-search-input",
+  "local-search-result"
 );

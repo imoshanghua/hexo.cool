@@ -778,7 +778,6 @@ body::before {
   margin: 0 1rem;
   padding: 1rem;
   background-color: var(--post-block-bg-color);
-  backdrop-filter: blur(10px);
 }
 @media screen and (max-width: 768px) {
   .post-block {
@@ -1124,10 +1123,10 @@ body::before {
   transition-duration: 0.2s;
   transition-delay: 0s;
   background-color: rgba(255,255,255,0.9);
-  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  box-shadow: 0 1px 8px rgba(255,255,255,0.1);
 }
 .post-card:hover {
-  box-shadow: 0 0px 25px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 10px rgba(0,0,0,0.08);
 }
 .post-card-header {
   padding-top: 0.5rem;
@@ -1196,27 +1195,6 @@ body::before {
 .post-top-icon .icon {
   width: 1.5rem;
   height: 1.5rem;
-}
-pre[class*='language-'] {
-  position: relative;
-}
-pre[class*='language-']:hover .copy-btn {
-  opacity: 1;
-}
-.copy-btn {
-  opacity: 0;
-  color: #808080;
-  cursor: pointer;
-  line-height: 1.5;
-  padding: 1px 4px;
-  transition: opacity 0.2s;
-  position: absolute;
-  top: 2px;
-  right: 2px;
-  border-radius: 4px;
-}
-.copy-btn:hover {
-  background-color: rgba(255,255,255,0.1);
 }
 .post-collapse {
   position: relative;
@@ -1766,7 +1744,6 @@ pre[class*='language-']:hover .copy-btn {
 .site-author-avatar {
   display: inline-block;
   line-height: 0;
-  position: relative;
 }
 .site-author-avatar img {
   height: 96px;

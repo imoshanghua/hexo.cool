@@ -33,7 +33,7 @@ function initPage() {
     scrollPercent(window.scrollY);
   });
 
-  Yun.utils.insertCopyCodeBtn();
+  // wrap
   Yun.utils.wrapTable();
 }
 
